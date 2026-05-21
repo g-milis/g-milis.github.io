@@ -10,14 +10,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Hidden in Plain Tokens | Project Page</title>
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
-
-  <link rel="stylesheet" href="../static/css/bulma.min.css">
-  <link rel="stylesheet" href="../static/css/fontawesome.all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="../static/css/index.css">
-
-  <script defer src="../static/js/fontawesome.all.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="../index.css">
 </head>
 <body>
 
@@ -39,7 +33,7 @@
           <div class="column has-text-centered">
             <div class="publication-links">
               <span class="link-block">
-                <a href="../Training_free_watermarking_of_audio_codecs__ICML_.pdf" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                <a href="../Training_free_watermarking_of_audio_codecs__ICML_.pdf" target="_blank" class="button">
                   <span class="icon">
                     <i class="fas fa-file-pdf"></i>
                   </span>
@@ -47,7 +41,7 @@
                 </a>
               </span>
               <span class="link-block">
-                <a href="https://github.com/g-milis/nograd-audio-wm" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                <a href="https://github.com/g-milis/nograd-audio-wm" target="_blank" class="button">
                   <span class="icon">
                     <i class="fab fa-github"></i>
                   </span>
@@ -87,7 +81,7 @@
     <div class="columns is-centered">
       <div class="column is-full">
         <figure id="fig-watermarking">
-          <img src="../static/images/RetokenizationMismatch-Page-2.drawio.png" alt="Token-level watermarking mechanism in audio domain" style="max-width: 100%; height: auto;"/>
+          <img src="../media/images/RetokenizationMismatch-Page-2.drawio.png" alt="Token-level watermarking mechanism in audio domain" style="max-width: 100%; height: auto;"/>
           <figcaption class="content has-text-justified">
             Illustration of a token-level watermarking mechanism in the audio domain. During generation, the autoregressive model computes a probability distribution over the vocabulary at each time step. A logit bias is pseudorandomly applied to a specific subset of tokens, encouraging their selection, and the resulting token sequence is synthesized into a waveform by the decoder D. For detection, the waveform is re-encoded by the encoder E to recover the token sequence. The detector then performs a statistical hypothesis test based on the number of biased tokens, returning a p-value representing the probability of random generation. A sufficiently low p-value is evidence towards the alternative hypothesis, meaning that a watermark signal is present.
           </figcaption>
@@ -99,7 +93,7 @@
     <div class="columns is-centered">
       <div class="column is-three-quarters">
         <figure id="fig-method">
-          <img src="../static/images/RetokenizationMismatch-Page-3.drawio.png" alt="Method overview for mitigating retokenization errors" style="max-width: 100%; height: auto;"/>
+          <img src="../media/images/RetokenizationMismatch-Page-3.drawio.png" alt="Method overview for mitigating retokenization errors" style="max-width: 100%; height: auto;"/>
           <figcaption class="content has-text-justified">
             Illustration of how our method captures and explicitly mitigates the retokenization errors. First, we use the encoder and decoder modules from the codec of interest to encode, decode, and re-encode a dataset of waveforms (top). We use the confusion counts between token as edge weights in a graph where the vertices correspond to tokens. Then, we perform community detection on that graph, effectively reducing the vocabulary size by a many-to-one mapping from tokens to clusters (bottom). Singleton vertices correspond to tokens that have never been confused in the dataset. Notice that we only require black box access to the codec components.
           </figcaption>
@@ -119,10 +113,10 @@
         </p>
       </div>
 
-      <div class="container my-4">
+      <div class="container">
         <div class="table-responsive">
-          <table class="table table-bordered align-middle text-center">
-            <thead class="table-light">
+          <table class="table">
+            <thead >
               <tr>
                 <th>No watermark</th>
                 <th>Baseline watermark</th>
@@ -131,14 +125,14 @@
             </thead>
             <tbody>
               <tr>
-                <td><audio controls preload="none" style="width: 100%;"><source src="../static/audios/nograd/template_nowm_0.wav" type="audio/wav"></audio></td>
-                <td><audio controls preload="none" style="width: 100%;"><source src="../static/audios/nograd/template_baseline_0.wav" type="audio/wav"></audio></td>
-                <td><audio controls preload="none" style="width: 100%;"><source src="../static/audios/nograd/template_ours_0.wav" type="audio/wav"></audio></td>
+                <td><audio controls preload="none" style="width: 100%;"><source src="../media/audios/nograd/template_nowm_0.wav" type="audio/wav"></audio></td>
+                <td><audio controls preload="none" style="width: 100%;"><source src="../media/audios/nograd/template_baseline_0.wav" type="audio/wav"></audio></td>
+                <td><audio controls preload="none" style="width: 100%;"><source src="../media/audios/nograd/template_ours_0.wav" type="audio/wav"></audio></td>
               </tr>
               <tr>
-                <td><audio controls preload="none" style="width: 100%;"><source src="../static/audios/nograd/template_nowm_1.wav" type="audio/wav"></audio></td>
-                <td><audio controls preload="none" style="width: 100%;"><source src="../static/audios/nograd/template_baseline_1.wav" type="audio/wav"></audio></td>
-                <td><audio controls preload="none" style="width: 100%;"><source src="../static/audios/nograd/template_ours_1.wav" type="audio/wav"></audio></td>
+                <td><audio controls preload="none" style="width: 100%;"><source src="../media/audios/nograd/template_nowm_1.wav" type="audio/wav"></audio></td>
+                <td><audio controls preload="none" style="width: 100%;"><source src="../media/audios/nograd/template_baseline_1.wav" type="audio/wav"></audio></td>
+                <td><audio controls preload="none" style="width: 100%;"><source src="../media/audios/nograd/template_ours_1.wav" type="audio/wav"></audio></td>
               </tr>
             </tbody>
           </table>
@@ -159,10 +153,6 @@
 }</code></pre>
   </div>
 </section>
-
-<footer class="footer">
-  <p>Built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>, adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page. Commons Attribution-ShareAlike 4.0 International License.</p>
-</footer>
 
 </body>
 </html>

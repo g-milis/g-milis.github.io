@@ -2,35 +2,19 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
-  <!-- Replace the content tag with appropriate information -->
-  <!-- <meta name="description" content="DESCRIPTION META TAG"> -->
   <meta property="og:title" content="NEUTART - Project webpage"/>
-  <!-- <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG"/> -->
   <meta property="og:url" content="https://g-milis.github.io/projects/neutart.html"/>
-  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
 
 
   <meta name="twitter:title" content="NEUTART - Project webpage">
-  <!-- <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG"> -->
-  <!-- Keywords for your paper to be indexed by-->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
   <title>NEUTART | Project Page</title>
-  <!-- <link rel="icon" type="image/x-icon" href="../static/images/favicon.ico"> -->
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-  rel="stylesheet">
-
-  <link rel="stylesheet" href="../static/css/bulma.min.css">
-  <link rel="stylesheet" href="../static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="../static/css/index.css">
-
-  <script defer src="../static/js/fontawesome.all.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="../index.css">
 </head>
 <body>
 
@@ -40,7 +24,7 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">Neural Text to Articulate Talk: Deep Text to Audiovisual Speech Synthesis achieving both Auditory and Photo-realism</h1>
+            <h2 class="title is-2 publication-title">Neural Text to Articulate Talk: Deep Text to Audiovisual Speech Synthesis achieving both Auditory and Photo-realism</h2>
             <div class="is-size-5 publication-authors">
               <!-- Paper authors -->
               <span class="author-block">
@@ -70,7 +54,7 @@
                       <!-- Arxiv PDF link -->
                       <span class="link-block">
                         <a href="https://arxiv.org/pdf/2312.06613.pdf" target="_blank"
-                        class="external-link button is-normal is-rounded is-dark">
+                        class="button">
                         <span class="icon">
                           <i class="fas fa-file-pdf"></i>
                         </span>
@@ -81,9 +65,9 @@
                     <!-- ArXiv abstract Link -->
                     <span class="link-block">
                       <a href="https://arxiv.org/abs/2312.06613" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
+                      class="button">
                       <span class="icon">
-                        <i class="ai ai-arxiv"></i>
+                        <i class="fas fa-file-lines"></i>
                       </span>
                       <span>arXiv</span>
                     </a>
@@ -91,7 +75,7 @@
 
                     <span class="link-block">
                       <a href="https://youtu.be/W2DNiI0j5a8" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
+                      class="button">
                       <span class="icon">
                         <i class="fab fa-youtube"></i>
                       </span>
@@ -102,7 +86,7 @@
                   <!-- Github link -->
                   <span class="link-block">
                     <a href="https://github.com/Georgios-Milis/NEUTART" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
+                    class="button">
                     <span class="icon">
                       <i class="fab fa-github"></i>
                     </span>
@@ -119,7 +103,7 @@
 
 
 <!-- Paper abstract -->
-<section class="section hero is-light">
+<section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
@@ -142,7 +126,7 @@
     <div class="column is-four-fifths">
       <h2 class="title is-3">Video</h2>
       <div class="publication-video">
-        <iframe src="https://www.youtube.com/embed/W2DNiI0j5a8?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <iframe src="https://www.youtube-nocookie.com/embed/W2DNiI0j5a8?rel=0" title="NEUTART video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </div>
     </div>
   </div>
@@ -155,7 +139,7 @@
       <h2 class="title is-3">Pipeline</h2>
       <p>Our model uses two modules for photo-realistic audiovisual speech synthesis. The first module maps the input text to audio as well as a synced 3D talking head. The photo-realistic module swaps the face from a reference video with a face predicted from the 3D talking head. The two modules are coupled during inference, but are trained separately.</p>
       <p><br></p>
-      <img src="../static/images/pipeline_tight.png" style="max-width:100%;"/>
+      <img src="../media/images/pipeline_tight.png" style="max-width:80%; height:auto;"/>
     </div>
   </div>
 </section>
@@ -175,15 +159,6 @@
     </div>
 </section>
 <!--End BibTex citation -->
-
-
-  <footer class="footer">
-    <p>
-      Built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-      You are free to borrow the of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
-      Commons Attribution-ShareAlike 4.0 International License</a>.
-    </p>
-</footer>
 
 </body>
 </html>
