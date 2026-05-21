@@ -23,7 +23,7 @@ h1, p {
 }
 
 img {
-  max-width: 15%;
+  max-width: 12%;
 }
 
 .footer {
@@ -39,40 +39,6 @@ img {
 .link-block a {
     margin-top: 5px;
     margin-bottom: 5px;
-}
-
-.dnerf {
-  font-variant: small-caps;
-}
-
-
-.teaser .hero-body {
-  padding-top: 0;
-  padding-bottom: 3rem;
-}
-
-.teaser {
-  font-family: 'Google Sans', sans-serif;
-}
-
-
-.publication-title {
-}
-
-.publication-banner {
-  max-height: parent;
-
-}
-
-.publication-banner video {
-  position: relative;
-  left: auto;
-  top: auto;
-  transform: none;
-  object-fit: fit;
-}
-
-.publication-header .hero-body {
 }
 
 .publication-title {
@@ -95,9 +61,6 @@ img {
     font-weight: bolder;
 }
 
-.publication-authors {
-}
-
 .publication-authors a {
    color: hsl(204, 86%, 53%) !important;
 }
@@ -108,13 +71,6 @@ img {
 
 .author-block {
   display: inline-block;
-}
-
-.publication-banner img {
-}
-
-.publication-authors {
-  /*color: #4286f4;*/
 }
 
 .publication-video {
@@ -135,30 +91,27 @@ img {
     height: 100%;
 }
 
-.publication-body img {
+.project-link {
+  margin-left: 0.25rem;
+  font-size: 0.88em;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  color: inherit;
+  white-space: nowrap;
 }
 
-.results-carousel {
-  overflow: hidden;
+.project-link::after {
+  content: " \2197";
 }
 
-.results-carousel .item {
-  margin: 5px;
-  overflow: hidden;
-  padding: 20px;
-  font-size: 0;
+.project-link:hover {
+  opacity: 0.75;
 }
 
-.results-carousel video {
-  margin: 0;
-}
-
-.slider-pagination .slider-page {
-  background: #000000;
-}
-
-.eql-cntrb { 
-  font-size: smaller;
+@media (max-width: 768px) {
+  header > img {
+    max-width: 38%;
+  }
 }
 
 

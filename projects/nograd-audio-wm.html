@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta property="og:title" content="Hidden in Plain Tokens - Project webpage"/>
+  <meta property="og:url" content="https://g-milis.github.io/projects/nograd-audio-wm.html"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta name="twitter:title" content="Hidden in Plain Tokens - Project webpage">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Hidden in Plain Tokens | Project Page</title>
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="../static/css/bulma.min.css">
+  <link rel="stylesheet" href="../static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="../static/css/index.css">
+
+  <script defer src="../static/js/fontawesome.all.min.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h2 class="title is-2 publication-title">Hidden in Plain Tokens</h2>
+          <h3 class="title is-3 publication-title">Simply Robust, Gradient-Free Watermark for Synthetic Audio (ICML 2026)</h3>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><a href="https://g-milis.github.io/" target="_blank">Georgios Milis</a>,</span>
+            <span class="author-block">Yubin Qin,</span>
+            <span class="author-block"><a href="https://yihwu.github.io/" target="_blank">Yihan Wu</a>,</span>
+            <span class="author-block"><a href="https://www.cs.umd.edu/people/heng" target="_blank">Heng Huang</a></span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="../Training_free_watermarking_of_audio_codecs__ICML_.pdf" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/g-milis/nograd-audio-wm" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                </a>
+              </span>
+            </div>
+          </div>
+
+          <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+              <div class="column is-four-fifths">
+                <h4 class="title is-4">Abstract</h4>
+                <div class="content has-text-justified">
+                  <p>
+                    As policy catches up with the capabilities of generative AI, watermarking is central to content provenance efforts. Inference-time watermarks for autoregressive models are unfit for continuous modalities due to discretization inconsistencies. Existing methods overcome this by finetuning the modality tokenizers, nullifying the watermark's training-free advantage. In this work, motivated by the vocabulary redundancy of discretization, we propose an elegant solution for powerful and robust watermarking of synthetic audio. We theoretically analyze the impact of token errors on watermark detection, and effectively mitigate them using a reduced vocabulary obtained via community detection. Thorough experiments showcase that our gradient-free method can boost detectability by several orders of magnitude, while also achieving built-in robustness to audio modifications. Broadly, we discover a new state-of-the-art for token-level watermarks in multimedia, which simply arises from the nature of discrete representation learning.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="MethodOverview">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h4 class="title is-4">Method Overview</h4>
+      </div>
+    </div>
+
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <figure id="fig-watermarking">
+          <img src="../static/images/RetokenizationMismatch-Page-2.drawio.png" alt="Token-level watermarking mechanism in audio domain" style="max-width: 100%; height: auto;"/>
+          <figcaption class="content has-text-justified">
+            Illustration of a token-level watermarking mechanism in the audio domain. During generation, the autoregressive model computes a probability distribution over the vocabulary at each time step. A logit bias is pseudorandomly applied to a specific subset of tokens, encouraging their selection, and the resulting token sequence is synthesized into a waveform by the decoder D. For detection, the waveform is re-encoded by the encoder E to recover the token sequence. The detector then performs a statistical hypothesis test based on the number of biased tokens, returning a p-value representing the probability of random generation. A sufficiently low p-value is evidence towards the alternative hypothesis, meaning that a watermark signal is present.
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+    <br>
+
+    <div class="columns is-centered">
+      <div class="column is-three-quarters">
+        <figure id="fig-method">
+          <img src="../static/images/RetokenizationMismatch-Page-3.drawio.png" alt="Method overview for mitigating retokenization errors" style="max-width: 100%; height: auto;"/>
+          <figcaption class="content has-text-justified">
+            Illustration of how our method captures and explicitly mitigates the retokenization errors. First, we use the encoder and decoder modules from the codec of interest to encode, decode, and re-encode a dataset of waveforms (top). We use the confusion counts between token as edge weights in a graph where the vertices correspond to tokens. Then, we perform community detection on that graph, effectively reducing the vocabulary size by a many-to-one mapping from tokens to clusters (bottom). Singleton vertices correspond to tokens that have never been confused in the dataset. Notice that we only require black box access to the codec components.
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="AudioSamples">
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-four-fifths">
+      <h4 class="title is-4">Audio Samples</h4>
+      <div class="content has-text-justified">
+        <p>
+          Template placeholders for qualitative examples. Replace each source path with your generated samples.
+        </p>
+      </div>
+
+      <div class="container my-4">
+        <div class="table-responsive">
+          <table class="table table-bordered align-middle text-center">
+            <thead class="table-light">
+              <tr>
+                <th>No watermark</th>
+                <th>Baseline watermark</th>
+                <th>NoGrad watermark (ours)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><audio controls preload="none" style="width: 100%;"><source src="../static/audios/nograd/template_nowm_0.wav" type="audio/wav"></audio></td>
+                <td><audio controls preload="none" style="width: 100%;"><source src="../static/audios/nograd/template_baseline_0.wav" type="audio/wav"></audio></td>
+                <td><audio controls preload="none" style="width: 100%;"><source src="../static/audios/nograd/template_ours_0.wav" type="audio/wav"></audio></td>
+              </tr>
+              <tr>
+                <td><audio controls preload="none" style="width: 100%;"><source src="../static/audios/nograd/template_nowm_1.wav" type="audio/wav"></audio></td>
+                <td><audio controls preload="none" style="width: 100%;"><source src="../static/audios/nograd/template_baseline_1.wav" type="audio/wav"></audio></td>
+                <td><audio controls preload="none" style="width: 100%;"><source src="../static/audios/nograd/template_ours_1.wav" type="audio/wav"></audio></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="Citation">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+<pre><code>@inproceedings{milis2026hidden,
+  title={Hidden in Plain Tokens: Simply Robust, Gradient-Free Watermark for Synthetic Audio},
+  author={Milis, Georgios and Qin, Yubin and Wu, Yihan and Huang, Heng},
+  booktitle={Proceedings of the 43rd International Conference on Machine Learning (ICML)},
+  year={2026}
+}</code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>Built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>, adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page. Commons Attribution-ShareAlike 4.0 International License.</p>
+</footer>
+
+</body>
+</html>
