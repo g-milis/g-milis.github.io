@@ -95,7 +95,7 @@
         <figure id="fig-method">
           <img src="../media/images/RetokenizationMismatch-Page-3.drawio.png" alt="Method overview for mitigating retokenization errors" style="max-width: 100%; height: auto;"/>
           <figcaption class="content has-text-justified">
-            Illustration of how our method captures and explicitly mitigates the retokenization errors. First, we use the encoder and decoder modules from the codec of interest to encode, decode, and re-encode a dataset of waveforms (top). We use the confusion counts between token as edge weights in a graph where the vertices correspond to tokens. Then, we perform community detection on that graph, effectively reducing the vocabulary size by a many-to-one mapping from tokens to clusters (bottom). Singleton vertices correspond to tokens that have never been confused in the dataset. Notice that we only require black box access to the codec components.
+            Illustration of how our method captures and explicitly mitigates the retokenization errors. First, we use the encoder and decoder modules from the codec of interest to encode, decode, and re-encode a dataset of waveforms (top). We use the confusion counts between tokens as edge weights in a graph where the vertices correspond to tokens. Then, we perform community detection on that graph, effectively reducing the vocabulary size by a many-to-one mapping from tokens to clusters (bottom). Singleton vertices represent tokens that have never been confused in the dataset. Notice that we only require black box access to the codec components.
           </figcaption>
         </figure>
       </div>
